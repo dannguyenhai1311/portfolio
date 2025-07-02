@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Nguyen Hai Dan | FullStack Developer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
+        );
+        color: #e2e8f0;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: #1e293b;
+        border-radius: 12px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+      }
+
+      .vs-code-header {
+        background: #374151;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #4b5563;
+      }
+
+      .vs-code-buttons {
+        display: flex;
+        gap: 8px;
+      }
+
+      .vs-code-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .close {
+        background: #ef4444;
+      }
+      .minimize {
+        background: #f59e0b;
+      }
+      .maximize {
+        background: #22c55e;
+      }
+
+      .file-tab {
+        background: #1e293b;
+        padding: 8px 16px;
+        border-radius: 6px 6px 0 0;
+        color: #e2e8f0;
+        font-size: 14px;
+        margin-left: 20px;
+        border: 1px solid #4b5563;
+        border-bottom: none;
+        position: relative;
+      }
+
+      .file-tab::before {
+        content: "⚛️";
+        margin-right: 8px;
+      }
+
+      .code-content {
+        padding: 30px;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .line-numbers {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        bottom: 0;
+        width: 60px;
+        background: #374151;
+        padding: 30px 10px;
+        color: #6b7280;
+        font-size: 12px;
+        text-align: right;
+        border-right: 1px solid #4b5563;
+      }
+
+      .code-content {
+        margin-left: 60px;
+      }
+
+      .line-number {
+        display: block;
+        height: 25.2px;
+        margin-bottom: 0;
+      }
+
+      /* Syntax Highlighting */
+      .import {
+        color: #c084fc;
+        font-weight: 500;
+      }
+      .from {
+        color: #c084fc;
+      }
+      .react {
+        color: #61dafb;
+      }
+      .const {
+        color: #f59e0b;
+        font-weight: 500;
+      }
+      .function {
+        color: #f59e0b;
+      }
+      .component-name {
+        color: #34d399;
+        font-weight: 600;
+      }
+      .jsx-tag {
+        color: #f87171;
+      }
+      .jsx-attr {
+        color: #fbbf24;
+      }
+      .string {
+        color: #a78bfa;
+      }
+      .number {
+        color: #fb7185;
+      }
+      .boolean {
+        color: #34d399;
+      }
+      .comment {
+        color: #6b7280;
+        font-style: italic;
+      }
+      .object-key {
+        color: #60a5fa;
+      }
+      .bracket {
+        color: #e2e8f0;
+        font-weight: bold;
+      }
+      .operator {
+        color: #f472b6;
+      }
+      .return {
+        color: #f59e0b;
+        font-weight: 500;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        padding: 20px;
+        background: rgba(15, 23, 42, 0.5);
+        border-radius: 8px;
+        border: 1px solid #334155;
+      }
+
+      .profile-section {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .profile-image {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: white;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-image::before {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: #1e293b;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-image::after {
+        content: "👨‍💻";
+        position: relative;
+        z-index: 1;
+      }
+
+      .personal-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .tech-item {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: #93c5fd;
+        font-size: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .tech-item:hover {
+        background: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .project-card {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid #475569;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 20px 0;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 10px 10px 0 0;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: #3b82f6;
+      }
+
+      .project-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .project-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      .typing-animation {
+        border-right: 2px solid #3b82f6;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          border-right-color: #3b82f6;
+        }
+        51%,
+        100% {
+          border-right-color: transparent;
+        }
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+
+      .experience-timeline {
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899);
+      }
+
+      .experience-item {
+        position: relative;
+        margin-bottom: 30px;
+        background: rgba(15, 23, 42, 0.6);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #334155;
+      }
+
+      .experience-item::before {
+        content: "";
+        position: absolute;
+        left: -37px;
+        top: 20px;
+        width: 12px;
+        height: 12px;
+        background: #3b82f6;
+        border-radius: 50%;
+        border: 3px solid #1e293b;
+      }
+
+      .stats-corner {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(59, 130, 246, 0.9);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      @media (max-width: 768px) {
+        .profile-section {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .profile-image {
+          width: 150px;
+          height: 150px;
+        }
+
+        body {
+          padding: 10px;
+        }
+
+        .code-content {
+          font-size: 12px;
+          padding: 20px;
+          margin-left: 50px;
+        }
+
+        .line-numbers {
+          width: 50px;
+          padding: 20px 5px;
+        }
+      }
+
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .floating-element {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 20s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="floating-elements">
+        <div
+          class="floating-element"
+          style="left: 10%; animation-delay: 0s; font-size: 20px"
+        >
+          ⚛️
+        </div>
+        <div
+          class="floating-element"
+          style="left: 20%; animation-delay: 5s; font-size: 16px"
+        >
+          🚀
+        </div>
+        <div
+          class="floating-element"
+          style="left: 30%; animation-delay: 10s; font-size: 18px"
+        >
+          💻
+        </div>
+        <div
+          class="floating-element"
+          style="left: 80%; animation-delay: 15s; font-size: 22px"
+        >
+          ⚡
+        </div>
+      </div>
+
+      <div class="vs-code-header">
+        <div class="vs-code-buttons">
+          <div class="vs-code-button close"></div>
+          <div class="vs-code-button minimize"></div>
+          <div class="vs-code-button maximize"></div>
+        </div>
+        <div class="file-tab">CV-NguyenHaiDan.jsx</div>
+      </div>
+
+      <div class="line-numbers">
+        <span class="line-number">1</span>
+        <span class="line-number">2</span>
+        <span class="line-number">3</span>
+        <span class="line-number">4</span>
+        <span class="line-number">5</span>
+        <span class="line-number">6</span>
+        <span class="line-number">7</span>
+        <span class="line-number">8</span>
+        <span class="line-number">9</span>
+        <span class="line-number">10</span>
+        <span class="line-number">11</span>
+        <span class="line-number">12</span>
+        <span class="line-number">13</span>
+        <span class="line-number">14</span>
+        <span class="line-number">15</span>
+        <span class="line-number">16</span>
+        <span class="line-number">17</span>
+        <span class="line-number">18</span>
+        <span class="line-number">19</span>
+        <span class="line-number">20</span>
+        <span class="line-number">21</span>
+        <span class="line-number">22</span>
+        <span class="line-number">23</span>
+        <span class="line-number">24</span>
+        <span class="line-number">25</span>
+        <span class="line-number">26</span>
+        <span class="line-number">27</span>
+        <span class="line-number">28</span>
+        <span class="line-number">29</span>
+        <span class="line-number">30</span>
+        <span class="line-number">31</span>
+        <span class="line-number">32</span>
+        <span class="line-number">33</span>
+        <span class="line-number">34</span>
+        <span class="line-number">35</span>
+        <span class="line-number">36</span>
+        <span class="line-number">37</span>
+        <span class="line-number">38</span>
+        <span class="line-number">39</span>
+        <span class="line-number">40</span>
+        <span class="line-number">41</span>
+        <span class="line-number">42</span>
+        <span class="line-number">43</span>
+        <span class="line-number">44</span>
+        <span class="line-number">45</span>
+        <span class="line-number">46</span>
+        <span class="line-number">47</span>
+        <span class="line-number">48</span>
+        <span class="line-number">49</span>
+        <span class="line-number">50</span>
+        <span class="line-number">51</span>
+        <span class="line-number">52</span>
+        <span class="line-number">53</span>
+        <span class="line-number">54</span>
+        <span class="line-number">55</span>
+        <span class="line-number">56</span>
+        <span class="line-number">57</span>
+        <span class="line-number">58</span>
+        <span class="line-number">59</span>
+        <span class="line-number">60</span>
+      </div>
+
+      <div class="code-content">
+        <div>
+          <span class="import">import</span> <span class="react">React</span>
+          <span class="from">from</span> <span class="string">'react'</span>;
+        </div>
+        <div>
+          <span class="import">import</span>
+          <span class="bracket">{</span> useState, useEffect
+          <span class="bracket">}</span> <span class="from">from</span>
+          <span class="string">'react'</span>;
+        </div>
+        <br />
+        <div>
+          <span class="comment">// Personal Information Component</span>
+        </div>
+        <div>
+          <span class="const">const</span>
+          <span class="component-name">PersonalInfo</span>
+          <span class="operator">=</span> <span class="bracket">{</span>
+        </div>
+        <div style="margin-left: 20px">
+          <div>
+            <span class="object-key">fullName</span>:
+            <span class="string">NGUYEN HAI DAN</span>,
+          </div>
+          <div>
+            <span class="object-key">position</span>:
+            <span class="string">"FullStack Developer"</span>,
+          </div>
+          <div>
+            <span class="object-key">email</span>:
+            <span class="string">"nguyenhaidan13112000@gmail.com"</span>,
+          </div>
+          <div>
+            <span class="object-key">phone</span>:
+            <span class="string">"0982751895"</span>,
+          </div>
+          <div>
+            <span class="object-key">location</span>:
+            <span class="string">"Hanoi, Vietnam"</span>,
+          </div>
+          <div>
+            <span class="object-key">birthDate</span>:
+            <span class="string">"Sep 13, 2000"</span>,
+          </div>
+          <div>
+            <span class="object-key">linkedin</span>:
+            <span class="string">"https://www.linkedin.com/in/nhd1311/"</span>,
+          </div>
+          <div>
+            <span class="object-key">experience</span>:
+            <span class="string">"2+ years"</span>
+          </div>
+        </div>
+        <div><span class="bracket">};</span></div>
+        <br />
+
+        <div class="section">
+          <div class="profile-section">
+            <img
+              class="profile-image"
+              src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/495461096_1795352794531047_9103998198612145882_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEsi-0CopI-q1X6dAMhyLMvEy6-G5a1sQ8TLr4blrWxDy_JMLztpXHBz9Uld5iI3njghiIth4iz97-ZAiullL3H&_nc_ohc=AJ-ReL_gn_4Q7kNvwEdj1Dq&_nc_oc=Adl8PdUlOE1dA2o-2RXb5HpYIoLYttysA5rkw3xlAAXawOCudqX4Q1jZ_YUiQoMyi30&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=zD3h1esQyGpD_li-EYPTPg&oh=00_AfObFlB3SI4xaP2WSoCW17QtqSo-8rH94M80GqyWtMBNag&oe=686A87D8"
+            />
+            <div class="personal-info">
+              <h1
+                class="gradient-text"
+                style="font-size: 2.5em; margin-bottom: 10px"
+              >
+                NGUYEN HAI DAN
+              </h1>
+              <h2 style="color: #60a5fa; font-size: 1.5em; margin-bottom: 20px">
+                FullStack Developer
+              </h2>
+              <div style="color: #94a3b8">
+                <p>📧 nguyenhaidan13112000@gmail.com</p>
+                <p>📱 0982751895</p>
+                <p>📍 Hanoi, Vietnam</p>
+                <p>🎂 Sep 13, 2000</p>
+                <p>💼 2+ years experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div><span class="comment">// Technical Skills & Tools</span></div>
+        <div>
+          <span class="const">const</span>
+          <span class="component-name">TechStack</span>
+          <span class="operator">=</span> <span class="bracket">{</span>
+        </div>
+        <div style="margin-left: 20px">
+          <div><span class="object-key">frontend</span>: [</div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="string">"React.js"</span>,
+              <span class="string">"Next.js"</span>,
+              <span class="string">"TypeScript"</span>,
+              <span class="string">"JavaScript"</span>,
+            </div>
+            <div>
+              <span class="string">"HTML5"</span>,
+              <span class="string">"CSS3/SCSS"</span>,
+              <span class="string">"Tailwind CSS"</span>,
+            </div>
+            <div>
+              <span class="string">"Material UI"</span>,
+              <span class="string">"Styled Components"</span>,
+              <span class="string">"Bootstrap"</span>
+            </div>
+          </div>
+          <div>],</div>
+          <div><span class="object-key">backend</span>: [</div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="string">"Node.js"</span>,
+              <span class="string">"Express.js"</span>,
+              <span class="string">"Nest.js"</span>
+            </div>
+          </div>
+          <div>],</div>
+          <div><span class="object-key">database</span>: [</div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="string">"PostgreSQL"</span>,
+              <span class="string">"MySQL"</span>,
+              <span class="string">"MongoDB"</span>
+            </div>
+          </div>
+          <div>],</div>
+          <div><span class="object-key">devops</span>: [</div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="string">"AWS (EC2, Lambda, S3, Cognito)"</span>,
+              <span class="string">"Docker"</span>,
+              <span class="string">"Jenkins"</span>
+            </div>
+          </div>
+          <div>],</div>
+          <div>
+            <span class="object-key">mobile</span>: [<span class="string"
+              >"React Native"</span
+            >],
+          </div>
+          <div><span class="object-key">tools</span>: [</div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="string">"Git/Github/Bitbucket"</span>,
+              <span class="string">"Figma"</span>,
+              <span class="string">"Adobe XD"</span>,
+            </div>
+            <div>
+              <span class="string">"Photoshop"</span>,
+              <span class="string">"Firebase"</span>,
+              <span class="string">"Redux"</span>
+            </div>
+          </div>
+          <div>]</div>
+        </div>
+        <div><span class="bracket">};</span></div>
+
+        <div class="section">
+          <div class="tech-grid">
+            <div class="tech-item">⚛️ React.js</div>
+            <div class="tech-item">🚀 Next.js</div>
+            <div class="tech-item">📘 TypeScript</div>
+            <div class="tech-item">🟢 Node.js</div>
+            <div class="tech-item">⚡ Express.js</div>
+            <div class="tech-item">🐘 PostgreSQL</div>
+            <div class="tech-item">☁️ AWS</div>
+            <div class="tech-item">🐳 Docker</div>
+            <div class="tech-item">📱 React Native</div>
+            <div class="tech-item">🎨 Figma</div>
+            <div class="tech-item">🔥 Firebase</div>
+            <div class="tech-item">💳 Stripe</div>
+          </div>
+        </div>
+        <br />
+
+        <div><span class="comment">// Work Experience Component</span></div>
+        <div>
+          <span class="const">const</span>
+          <span class="component-name">WorkExperience</span>
+          <span class="operator">=</span> <span class="bracket">()</span>
+          <span class="operator">=></span> <span class="bracket">{</span>
+        </div>
+        <div style="margin-left: 20px">
+          <div>
+            <span class="return">return</span> <span class="bracket">(</span>
+          </div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="jsx-tag">&lt;div</span>
+              <span class="jsx-attr">className</span
+              ><span class="operator">=</span
+              ><span class="string">"experience-timeline"</span
+              ><span class="jsx-tag">&gt;</span>
+            </div>
+
+            <div class="section">
+              <div class="experience-timeline">
+                <div class="experience-item">
+                  <h3 style="color: #34d399; font-size: 1.2em">
+                    🏢 FullStack Developer - Politetech
+                  </h3>
+                  <p style="color: #fbbf24; margin: 5px 0">
+                    📅 Nov 2022 - Present
+                  </p>
+                  <ul style="color: #cbd5e1; margin-left: 20px">
+                    <li>
+                      • Phát triển phần mềm chất lượng cao với React.js,
+                      Next.js, Node.js
+                    </li>
+                    <li>
+                      • Phối hợp với QA, BA, PM để đảm bảo chất lượng sản phẩm
+                    </li>
+                    <li>
+                      • Thảo luận với leader và team để đưa ra giải pháp tối ưu
+                    </li>
+                    <li>
+                      • Collaboration với stakeholders để cải thiện sản phẩm
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="experience-item">
+                  <h3 style="color: #34d399; font-size: 1.2em">
+                    💻 Frontend Developer (OJT) - FPT Software
+                  </h3>
+                  <p style="color: #fbbf24; margin: 5px 0">
+                    📅 May 2022 - Aug 2022
+                  </p>
+                  <ul style="color: #cbd5e1; margin-left: 20px">
+                    <li>
+                      • Học tập và xây dựng dự án với JavaScript, TypeScript
+                    </li>
+                    <li>• Học hỏi từ team members về công nghệ mới</li>
+                    <li>• Tham gia phát triển phần mềm cùng team</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-left: 20px">
+              <div><span class="jsx-tag">&lt;/div&gt;</span></div>
+            </div>
+          </div>
+          <div><span class="bracket">);</span></div>
+        </div>
+        <div><span class="bracket">};</span></div>
+        <br />
+
+        <div><span class="comment">// Featured Projects Component</span></div>
+        <div>
+          <span class="const">const</span>
+          <span class="component-name">FeaturedProjects</span>
+          <span class="operator">=</span> [
+        </div>
+        <div style="margin-left: 20px">
+          <div><span class="bracket">{</span></div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="object-key">name</span>:
+              <span class="string">"Magnify Health Platform"</span>,
+            </div>
+            <div>
+              <span class="object-key">duration</span>:
+              <span class="string">"Dec 2024 - Present"</span>,
+            </div>
+            <div>
+              <span class="object-key">client</span>:
+              <span class="string">"Singapore"</span>,
+            </div>
+            <div>
+              <span class="object-key">description</span>:
+              <span class="string">"Health blog platform với Strapi CMS"</span>,
+            </div>
+            <div>
+              <span class="object-key">tech</span>: [<span class="string"
+                >"Next.js"</span
+              >, <span class="string">"TypeScript"</span>,
+              <span class="string">"SCSS"</span>,
+              <span class="string">"Strapi"</span>],
+            </div>
+            <div>
+              <span class="object-key">link</span>:
+              <span
+                class="string"
+                style="color: #34d399; text-decoration: underline"
+                >"https://magnifyhealth.sg"</span
+              >
+            </div>
+          </div>
+          <div><span class="bracket">},</span></div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🏥</div>
+              <div>
+                <h3 style="color: #60a5fa; font-size: 1.3em">
+                  Magnify Health Platform
+                </h3>
+                <p style="color: #fbbf24">Dec 2024 - Present | Singapore</p>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; margin-bottom: 15px">
+              Nền tảng blog sức khỏe cho phép người dùng tải lên, quản lý và
+              chia sẻ bài viết về các chủ đề liên quan đến sức khỏe. Sử dụng
+              Strapi làm backend cho việc quản lý nội dung.
+            </p>
+            <div class="tech-grid">
+              <div class="tech-item">Next.js</div>
+              <div class="tech-item">TypeScript</div>
+              <div class="tech-item">SCSS</div>
+              <div class="tech-item">Strapi</div>
+              <div class="tech-item">Redux-Saga</div>
+            </div>
+            <p style="color: #34d399; margin-top: 10px">
+              🔗
+              <a
+                href="https://magnifyhealth.sg"
+                style="color: #34d399; text-decoration: underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://magnifyhealth.sg</a
+              >
+            </p>
+          </div>
+
+          <div><span class="bracket">{</span></div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="object-key">name</span>:
+              <span class="string">"Crafted Data AI Assistant"</span>,
+            </div>
+            <div>
+              <span class="object-key">duration</span>:
+              <span class="string">"Aug 2024 - Dec 2024"</span>,
+            </div>
+            <div>
+              <span class="object-key">client</span>:
+              <span class="string">"Canada"</span>,
+            </div>
+            <div>
+              <span class="object-key">description</span>:
+              <span class="string"
+                >"AI-Powered Chat Assistant for Customer Account Analysis: Dự án
+                phát triển trợ lý chat AI để phân tích dữ liệu tài khoản khách
+                hàng lưu trữ trên BigQuery. Dữ liệu tài chính từ QuickBooks được
+                tích hợp qua Fivetran, tổng hợp và upload lên BigQuery, cung cấp
+                nguồn dữ liệu phân tích toàn diện."</span
+              >,
+            </div>
+            <div>
+              <span class="object-key">tech</span>: [<span class="string"
+                >"Next.js"</span
+              >, <span class="string">"TypeScript"</span>,
+              <span class="string">"SCSS"</span>,
+              <span class="string">"Styled Components"</span>,
+              <span class="string">"React-query"</span>,
+              <span class="string">"Formik"</span>,
+              <span class="string">"Redux Saga"</span>,
+              <span class="string">"Express.js"</span>,
+              <span class="string">"PostgreSQL"</span>,
+              <span class="string">"Stripe Payment"</span>,
+              <span class="string">"AWS"</span>,
+              <span class="string">"Docker"</span>],
+            </div>
+            <div>
+              <span class="object-key">link</span>: <span class="string"></span>
+            </div>
+          </div>
+          <div><span class="bracket">},</span></div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🤖</div>
+              <div>
+                <h3 style="color: #60a5fa; font-size: 1.3em">
+                  Crafted Data AI Assistant
+                </h3>
+                <p style="color: #fbbf24">Aug 2024 - Dec 2024 | Canada</p>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; margin-bottom: 15px">
+              AI-Powered Chat Assistant for Customer Account Analysis: Dự án
+              phát triển trợ lý chat AI để phân tích dữ liệu tài khoản khách
+              hàng lưu trữ trên BigQuery. Dữ liệu tài chính từ QuickBooks được
+              tích hợp qua Fivetran, tổng hợp và upload lên BigQuery, cung cấp
+              nguồn dữ liệu phân tích toàn diện.
+            </p>
+            <div class="tech-grid">
+              <div class="tech-item">Next.js</div>
+              <div class="tech-item">TypeScript</div>
+              <div class="tech-item">SCSS</div>
+              <div class="tech-item">Styled Components</div>
+              <div class="tech-item">React-query</div>
+              <div class="tech-item">Formik</div>
+              <div class="tech-item">Redux Saga</div>
+              <div class="tech-item">Express.js</div>
+              <div class="tech-item">PostgreSQL</div>
+              <div class="tech-item">Stripe Payment</div>
+              <div class="tech-item">AWS</div>
+              <div class="tech-item">Docker</div>
+            </div>
+          </div>
+
+          <div><span class="bracket">{</span></div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="object-key">name</span>:
+              <span class="string">"Jobcadu"</span>,
+            </div>
+            <div>
+              <span class="object-key">duration</span>:
+              <span class="string">"Nov 2023 - Aug 2024"</span>,
+            </div>
+            <div>
+              <span class="object-key">client</span>:
+              <span class="string">"Thailand"</span>,
+            </div>
+            <div>
+              <span class="object-key">description</span>:
+              <span class="string"
+                >"Nền tảng tuyển dụng sử dụng GPT chat API để hỗ trợ nhà tuyển
+                dụng và ứng viên hiệu quả hơn. Ứng viên được hỗ trợ tạo CV, nhà
+                tuyển dụng được hỗ trợ đăng tin tuyển dụng nhanh chóng. Tích hợp
+                đầy đủ các tính năng hệ thống tìm việc và thanh toán qua
+                Stripe."</span
+              >,
+            </div>
+            <div>
+              <span class="object-key">tech</span>: [<span class="string"
+                >"Next.js"</span
+              >, <span class="string">"TypeScript"</span>,
+              <span class="string">"SCSS"</span>,
+              <span class="string">"Styled Components"</span>,
+              <span class="string">"React-query"</span>,
+              <span class="string">"Redux Saga"</span>,
+              <span class="string">"Express.js"</span>,
+              <span class="string">"PostgreSQL"</span>,
+              <span class="string">"Stripe Payment"</span>,
+              <span class="string">"AWS"</span>,
+              <span class="string">"Docker"</span>],
+            </div>
+            <div>
+              <span class="object-key">link</span>:
+              <span class="string">"https://jobcadu.com"</span>
+            </div>
+          </div>
+          <div><span class="bracket">},</span></div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🌐</div>
+              <div>
+                <h3 style="color: #60a5fa; font-size: 1.3em">
+                  Jobcadu
+                  <span style="font-size: 0.8em"
+                    >(Link PROD:
+                    <a
+                      href="https://jobcadu.com"
+                      style="color: #34d399; text-decoration: underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >jobcadu.com</a
+                    >)</span
+                  >
+                </h3>
+                <p style="color: #fbbf24">Nov 2023 - Aug 2024 | Thailand</p>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; margin-bottom: 15px">
+              Nền tảng tuyển dụng sử dụng GPT chat API để hỗ trợ nhà tuyển dụng
+              và ứng viên hiệu quả hơn. Ứng viên được hỗ trợ tạo CV, nhà tuyển
+              dụng được hỗ trợ đăng tin tuyển dụng nhanh chóng. Tích hợp đầy đủ
+              các tính năng hệ thống tìm việc và thanh toán qua Stripe.
+            </p>
+            <div class="tech-grid">
+              <div class="tech-item">Next.js</div>
+              <div class="tech-item">TypeScript</div>
+              <div class="tech-item">SCSS</div>
+              <div class="tech-item">Styled Components</div>
+              <div class="tech-item">React-query</div>
+              <div class="tech-item">Redux Saga</div>
+              <div class="tech-item">Express.js</div>
+              <div class="tech-item">PostgreSQL</div>
+              <div class="tech-item">Stripe Payment</div>
+              <div class="tech-item">AWS</div>
+              <div class="tech-item">Docker</div>
+            </div>
+            <p style="color: #34d399; margin-top: 10px">
+              🔗
+              <a
+                href="https://jobcadu.com"
+                style="color: #34d399; text-decoration: underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://jobcadu.com</a
+              >
+            </p>
+          </div>
+
+          <div><span class="bracket">{</span></div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="object-key">name</span>:
+              <span class="string">"Jivedoctor"</span>,
+            </div>
+            <div>
+              <span class="object-key">duration</span>:
+              <span class="string">"Apr 2023 - Sep 2023"</span>,
+            </div>
+            <div>
+              <span class="object-key">client</span>:
+              <span class="string">"Singapore"</span>,
+            </div>
+            <div>
+              <span class="object-key">description</span>:
+              <span class="string"
+                >"Application for doctors to record diagnoses and save text as
+                audio. Can be accessed, customized, edited and displayed on the
+                website. Recording files can be downloaded to personal
+                devices."</span
+              >,
+            </div>
+            <div>
+              <span class="object-key">tech</span>: [<span class="string"
+                >"React-Native"</span
+              >, <span class="string">"TypeScript"</span>,
+              <span class="string">"React-query"</span>,
+              <span class="string">"Formik"</span>,
+              <span class="string">"Redux"</span>,
+              <span class="string">"Redux Saga"</span>,
+              <span class="string">"socketIO"</span>],
+            </div>
+            <div>
+              <span class="object-key">link</span>: <span class="string"></span>
+            </div>
+          </div>
+          <div><span class="bracket">},</span></div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🩺</div>
+              <div>
+                <h3 style="color: #60a5fa; font-size: 1.3em">Jivedoctor</h3>
+                <p style="color: #fbbf24">Apr 2023 - Sep 2023 | Singapore</p>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; margin-bottom: 15px">
+              Application for doctors to record diagnoses and save text as
+              audio. Can be accessed, customized, edited and displayed on the
+              website. Recording files can be downloaded to personal devices.
+            </p>
+            <div class="tech-grid">
+              <div class="tech-item">React-Native</div>
+              <div class="tech-item">TypeScript</div>
+              <div class="tech-item">React-query</div>
+              <div class="tech-item">Formik</div>
+              <div class="tech-item">Redux</div>
+              <div class="tech-item">Redux Saga</div>
+              <div class="tech-item">socketIO</div>
+            </div>
+          </div>
+
+          <div><span class="bracket">{</span></div>
+          <div style="margin-left: 20px">
+            <div>
+              <span class="object-key">name</span>:
+              <span class="string">"Forum-bulletin-board"</span>,
+            </div>
+            <div>
+              <span class="object-key">duration</span>:
+              <span class="string">"Feb 2023 - Apr 2023"</span>,
+            </div>
+            <div>
+              <span class="object-key">client</span>:
+              <span class="string">"Singapore"</span>,
+            </div>
+            <div>
+              <span class="object-key">description</span>:
+              <span class="string"
+                >"The Forum Bulletin Board is an interactive platform that
+                allows users to share and engage with multimedia content. Users
+                can post videos and images along with captions and descriptions,
+                fostering discussions and content sharing within the community.
+                The platform provides functionalities for users to create and
+                edit their own posts, while administrative control is maintained
+                by an admin who has exclusive rights to delete posts when
+                necessary."</span
+              >,
+            </div>
+            <div>
+              <span class="object-key">tech</span>: [<span class="string"
+                >"React.js"</span
+              >, <span class="string">"TypeScript"</span>,
+              <span class="string">"React-query"</span>,
+              <span class="string">"Formik"</span>,
+              <span class="string">"Redux"</span>,
+              <span class="string">"Redux Saga"</span>,
+              <span class="string">"Tailwind CSS"</span>],
+            </div>
+            <div>
+              <span class="object-key">link</span>: <span class="string"></span>
+            </div>
+          </div>
+          <div><span class="bracket">},</span></div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">💬</div>
+              <div>
+                <h3 style="color: #60a5fa; font-size: 1.3em">
+                  Forum-bulletin-board
+                </h3>
+                <p style="color: #fbbf24">Feb 2023 - Apr 2023 | Singapore</p>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; margin-bottom: 15px">
+              The Forum Bulletin Board is an interactive platform that allows
+              users to share and engage with multimedia content. Users can post
+              videos and images along with captions and descriptions, fostering
+              discussions and content sharing within the community. The platform
+              provides functionalities for users to create and edit their own
+              posts, while administrative control is maintained by an admin who
+              has exclusive rights to delete posts when necessary.
+            </p>
+            <div class="tech-grid">
+              <div class="tech-item">React.js</div>
+              <div class="tech-item">TypeScript</div>
+              <div class="tech-item">React-query</div>
+              <div class="tech-item">Formik</div>
+              <div class="tech-item">Redux</div>
+              <div class="tech-item">Redux Saga</div>
+              <div class="tech-item">Tailwind CSS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
